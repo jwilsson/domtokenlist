@@ -21,8 +21,8 @@
     };
 
     DOMTokenList2.prototype.add = function () {
-        var i,
-            tokens = [].slice.call(arguments);
+        var i;
+        var tokens = [].slice.call(arguments);
 
         for (i = 0; i < tokens.length; i++) {
             if (!this.contains(tokens[i])) {
@@ -44,9 +44,9 @@
     };
 
     DOMTokenList2.prototype.remove = function () {
-        var i,
-            key,
-            tokens = [].slice.call(arguments);
+        var i;
+        var key;
+        var tokens = [].slice.call(arguments);
 
         for (i = 0; i < tokens.length; i++) {
             key = inArray(this.tokens, tokens[i]);
@@ -65,7 +65,6 @@
         if (this.contains(token)) {
             if (!force) {
                 this.remove(token);
-
                 return false;
             }
 
@@ -77,7 +76,6 @@
         }
 
         this.add(token);
-
         return true;
     };
 
