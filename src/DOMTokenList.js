@@ -25,6 +25,10 @@
         var tokens = [].slice.call(arguments);
 
         for (i = 0; i < tokens.length; i++) {
+            if (tokens[i] === '' || /\s/.test(tokens[i])) {
+                throw new Error('Token must not be empty or contain whitespace.');
+            }
+
             if (!this.contains(tokens[i])) {
                 this.tokens.push(tokens[i]);
             }
@@ -49,6 +53,10 @@
         var tokens = [].slice.call(arguments);
 
         for (i = 0; i < tokens.length; i++) {
+            if (tokens[i] === '' || /\s/.test(tokens[i])) {
+                throw new Error('Token must not be empty or contain whitespace.');
+            }
+
             key = inArray(this.tokens, tokens[i]);
 
             if (key !== -1) {
