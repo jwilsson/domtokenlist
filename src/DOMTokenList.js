@@ -70,6 +70,10 @@
             throw new Error('Token must not be empty or contain whitespace.');
         }
 
+        if (!this.contains(token) && force === false) {
+            return false;
+        }
+
         if (this.contains(token)) {
             if (!force) {
                 this.remove(token);
@@ -77,10 +81,6 @@
             }
 
             return true;
-        }
-
-        if (force === false) {
-            return false;
         }
 
         this.add(token);
