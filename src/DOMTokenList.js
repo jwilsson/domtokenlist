@@ -15,6 +15,12 @@
         return -1;
     };
 
+    var isIllegal = function (token) {
+        if (token === '' || /\s/.test(token)) {
+            throw new Error('Token must not be empty or contain whitespace.');
+        }
+    };
+
     var DOMTokenList2 = function () {
         this.tokens = [];
         this.length = 0;
@@ -25,9 +31,7 @@
         var tokens = [].slice.call(arguments);
 
         for (i = 0; i < tokens.length; i++) {
-            if (tokens[i] === '' || /\s/.test(tokens[i])) {
-                throw new Error('Token must not be empty or contain whitespace.');
-            }
+            isIllegal(tokens[i]);
 
             if (!this.contains(tokens[i])) {
                 this.tokens.push(tokens[i]);
@@ -36,9 +40,7 @@
     };
 
     DOMTokenList2.prototype.contains = function (token) {
-        if (token === '' || /\s/.test(token)) {
-            throw new Error('Token must not be empty or contain whitespace.');
-        }
+        isIllegal(token);
 
         return inArray(this.tokens, token) !== -1;
     };
@@ -53,9 +55,7 @@
         var tokens = [].slice.call(arguments);
 
         for (i = 0; i < tokens.length; i++) {
-            if (tokens[i] === '' || /\s/.test(tokens[i])) {
-                throw new Error('Token must not be empty or contain whitespace.');
-            }
+            isIllegal(tokens[i]);
 
             key = inArray(this.tokens, tokens[i]);
 
@@ -66,9 +66,7 @@
     };
 
     DOMTokenList2.prototype.toggle = function (token, force) {
-        if (token === '' || /\s/.test(token)) {
-            throw new Error('Token must not be empty or contain whitespace.');
-        }
+        isIllegal(token);
 
         if (!this.contains(token) && force === false) {
             return false;
