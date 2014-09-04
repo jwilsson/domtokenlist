@@ -16,7 +16,9 @@
     };
 
     var isIllegal = function (token) {
-        if (token === '' || /\s/.test(token)) {
+        var whitespace = /[\u0009\u000A\u000C\u000D\u0020]/;
+
+        if (token === '' || whitespace.test(token)) {
             throw new Error('Token must not be empty or contain whitespace.');
         }
     };
