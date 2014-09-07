@@ -1,7 +1,7 @@
 ;(function () {
     'use strict';
 
-    if ('relList' in document.createElement('a')) {
+    if ('classList' in document.createElement('a')) {
         return;
     }
 
