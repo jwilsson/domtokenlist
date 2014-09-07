@@ -9,7 +9,3 @@ If native DOMTokenList support is detected, nothing will be done.
 ```
 <script src="DOMTokenList.js"></script>
 ```
-
-## Todo
-* Support for classList.
-* Support for relList.
