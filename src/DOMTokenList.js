@@ -24,7 +24,6 @@
     };
 
     var DOMTokenList2 = function () {
-        this.tokens = [];
         this.length = 0;
     };
 
@@ -36,7 +35,7 @@
             validateToken(tokens[i]);
 
             if (!this.contains(tokens[i])) {
-                this.tokens.push(tokens[i]);
+                [].push.call(this, tokens[i]);
             }
         }
     };
@@ -44,11 +43,11 @@
     DOMTokenList2.prototype.contains = function (token) {
         validateToken(token);
 
-        return inArray(this.tokens, token) !== -1;
+        return inArray(this, token) !== -1;
     };
 
     DOMTokenList2.prototype.item = function (index) {
-        return this.tokens[index] || null;
+        return this[index] || null;
     };
 
     DOMTokenList2.prototype.remove = function () {
@@ -59,10 +58,10 @@
         for (i = 0; i < tokens.length; i++) {
             validateToken(tokens[i]);
 
-            key = inArray(this.tokens, tokens[i]);
+            key = inArray(this, tokens[i]);
 
             if (key !== -1) {
-                this.tokens.splice(key, 1);
+                [].splice.call(this, key, 1);
             }
         }
     };
@@ -88,7 +87,7 @@
     };
 
     DOMTokenList2.prototype.toString = function () {
-        return this.tokens.join(' ');
+        return [].join.call(this, ' ');
     };
 
     window.DOMTokenList2 = DOMTokenList2;

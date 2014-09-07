@@ -1,17 +1,23 @@
+var toArray = function (object) {
+    return [].slice.call(object);
+};
+
 test('Add single token', function () {
     var list = new DOMTokenList2();
 
     list.add('token-1');
+    list = toArray(list);
 
-    deepEqual(list.tokens, ['token-1'], 'Assert that tokens is "token-1".');
+    deepEqual(list, ['token-1'], 'Assert that tokens is "token-1".');
 });
 
 test('Add multiple tokenes', function () {
     var list = new DOMTokenList2();
 
     list.add('token-1', 'token-2');
+    list = toArray(list);
 
-    deepEqual(list.tokens, ['token-1', 'token-2'], 'Assert that tokens is "token-1" and "token-2".');
+    deepEqual(list, ['token-1', 'token-2'], 'Assert that tokens is "token-1" and "token-2".');
 });
 
 test('Just add token once', function () {
@@ -19,8 +25,9 @@ test('Just add token once', function () {
 
     list.add('token-1');
     list.add('token-1');
+    list = toArray(list);
 
-    deepEqual(list.tokens, ['token-1'], 'Assert that token was only added once.');
+    deepEqual(list, ['token-1'], 'Assert that token was only added once.');
 });
 
 test('Just add token once', function () {
@@ -28,8 +35,9 @@ test('Just add token once', function () {
 
     list.add('token-1');
     list.add('token-1');
+    list = toArray(list);
 
-    deepEqual(list.tokens, ['token-1'], 'Assert that token was only added once.');
+    deepEqual(list, ['token-1'], 'Assert that token was only added once.');
 });
 
 test('Check contains with a single token', function () {
@@ -90,8 +98,9 @@ test('Remove single token', function () {
     list.add('token-2');
 
     list.remove('token-2');
+    list = toArray(list);
 
-    deepEqual(list.tokens, ['token-1'], 'Assert that "token-2" was removed.');
+    deepEqual(list, ['token-1'], 'Assert that "token-2" was removed.');
 });
 
 test('Remove multiple tokens', function () {
@@ -101,16 +110,18 @@ test('Remove multiple tokens', function () {
     list.add('token-2');
 
     list.remove('token-1', 'token-2');
+    list = toArray(list);
 
-    deepEqual(list.tokens, [], 'Assert that "token-1" and "token-2" was removed.');
+    deepEqual(list, [], 'Assert that "token-1" and "token-2" was removed.');
 });
 
 test('Toggle addition of token', function () {
     var list = new DOMTokenList2();
 
     list.toggle('token-1');
+    list = toArray(list);
 
-    deepEqual(list.tokens, ['token-1'], 'Assert that tokens is "token-1".');
+    deepEqual(list, ['token-1'], 'Assert that tokens is "token-1".');
 });
 
 test('Toggle removal of token', function () {
@@ -118,8 +129,9 @@ test('Toggle removal of token', function () {
 
     list.add('token-1');
     list.toggle('token-1');
+    list = toArray(list);
 
-    deepEqual(list.tokens, [], 'Assert that tokens is empty.');
+    deepEqual(list, [], 'Assert that tokens is empty.');
 });
 
 test('Toggle removal of token', function () {
@@ -127,8 +139,9 @@ test('Toggle removal of token', function () {
 
     list.add('token-1');
     list.toggle('token-1');
+    list = toArray(list);
 
-    deepEqual(list.tokens, [], 'Assert that tokens is empty.');
+    deepEqual(list, [], 'Assert that tokens is empty.');
 });
 
 test('Toggle removal of token', function () {
@@ -136,8 +149,9 @@ test('Toggle removal of token', function () {
 
     list.add('token-1');
     list.toggle('token-1');
+    list = toArray(list);
 
-    deepEqual(list.tokens, [], 'Assert that tokens is empty.');
+    deepEqual(list, [], 'Assert that tokens is empty.');
 });
 
 test('Test toggle force with filled token list', function () {
@@ -158,7 +172,9 @@ test('Test toggle force = false with empty token list', function () {
     var list = new DOMTokenList2();
     var result = list.toggle('token-12', false);
 
-    deepEqual(list.tokens, [], 'Assert that token list is empty');
+    list = toArray(list);
+
+    deepEqual(list, [], 'Assert that token list is empty');
     equal(result, false, 'Assert that toggle returns false.');
 });
 
