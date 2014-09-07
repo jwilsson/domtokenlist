@@ -1,15 +1,16 @@
 var gulp = require('gulp');
 var jshint = require('gulp-jshint');
 var uglify = require('gulp-uglifyjs');
+var files = ['./src/DOMTokenList.js', './src/classList.js', './src/relList.js'];
 
 gulp.task('jshint', function () {
-    return gulp.src('./src/*.js')
+    return gulp.src(files)
         .pipe(jshint())
         .pipe(jshint.reporter('default'));
 });
 
 gulp.task('uglify', function () {
-    return gulp.src(['./src/DOMTokenList.js', './src/classList.js', './src/relList.js'])
+    return gulp.src(files)
         .pipe(uglify())
         .pipe(gulp.dest('./dist'));
 });
