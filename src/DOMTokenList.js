@@ -15,7 +15,7 @@
         return -1;
     };
 
-    var isIllegal = function (token) {
+    var validateToken = function (token) {
         var whitespace = /[\u0009\u000A\u000C\u000D\u0020]/;
 
         if (token === '' || whitespace.test(token)) {
@@ -33,7 +33,7 @@
         var tokens = [].slice.call(arguments);
 
         for (i = 0; i < tokens.length; i++) {
-            isIllegal(tokens[i]);
+            validateToken(tokens[i]);
 
             if (!this.contains(tokens[i])) {
                 this.tokens.push(tokens[i]);
@@ -42,7 +42,7 @@
     };
 
     DOMTokenList2.prototype.contains = function (token) {
-        isIllegal(token);
+        validateToken(token);
 
         return inArray(this.tokens, token) !== -1;
     };
@@ -57,7 +57,7 @@
         var tokens = [].slice.call(arguments);
 
         for (i = 0; i < tokens.length; i++) {
-            isIllegal(tokens[i]);
+            validateToken(tokens[i]);
 
             key = inArray(this.tokens, tokens[i]);
 
@@ -68,7 +68,7 @@
     };
 
     DOMTokenList2.prototype.toggle = function (token, force) {
-        isIllegal(token);
+        validateToken(token);
 
         if (!this.contains(token) && force === false) {
             return false;
