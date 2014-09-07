@@ -1,9 +1,9 @@
 ;(function (window) {
     'use strict';
 
-    /*if ('DOMTokenList' in window) {
+    if ('DOMTokenList' in window) {
         return;
-    }*/
+    }
 
     var inArray = function (array, value) {
         var i;
