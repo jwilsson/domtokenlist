@@ -37,10 +37,15 @@
             this.element = element;
             this.attribute = attribute;
 
-            values = this.element.getAttribute(this.attribute).replace(/^\s+|\s+$/g,'').split(/\s+/);
+            values = this.element.getAttribute(this.attribute);
+            if (values) {
+                values = values.replace(/^\s+|\s+$/g,'').split(/\s+/);
 
-            for (i = 0; i < values.length; i++) {
-                this[i] = values[i];
+                for (i = 0; i < values.length; i++) {
+                    this[i] = values[i];
+                }
+            } else {
+                values = [];
             }
         }
 
