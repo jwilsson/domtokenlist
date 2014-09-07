@@ -1,4 +1,6 @@
 ;(function (window) {
+    'use strict';
+
     /*if ('DOMTokenList' in window) {
         return;
     }*/
