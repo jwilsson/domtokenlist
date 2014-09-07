@@ -91,6 +91,23 @@ test('Get item at non existing index', function () {
     equal(list.item(1), null, 'Assert that item() gives null for non existing token.');
 });
 
+test('Get item at index using shorthand', function () {
+    var list = new DOMTokenList2();
+
+    list.add('token-1');
+    list.add('token-2');
+
+    equal(list[1], 'token-2', 'Assert that "token-2" is at index 1.');
+});
+
+test('Get item at non existing index using shorthand', function () {
+    var list = new DOMTokenList2();
+
+    list.add('token-1');
+
+    equal(list[1], undefined, 'Assert that item() gives null for non existing token.');
+});
+
 test('Remove single token', function () {
     var list = new DOMTokenList2();
 
