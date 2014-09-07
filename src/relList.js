@@ -5,9 +5,15 @@
         return;
     }
 
-    Object.defineProperty(Element.prototype, 'relList', {
-        get: function () {
-            return new DOMTokenList(this, 'rel');
-        }
-    });
+    var i;
+    var elements = [HTMLAnchorElement, HTMLAreaElement, HTMLLinkElement];
+    var getter = function () {
+        return new DOMTokenList2(this, 'rel');
+    };
+
+    for (i = 0; i < elements.length; i++) {
+        Object.defineProperty(elements[i].prototype, 'relList', {
+            get: getter
+        });
+    }
 }());
