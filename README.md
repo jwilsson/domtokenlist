@@ -3,6 +3,5 @@
 A super strict polyfill for [DOMTokenList](http://dom.spec.whatwg.org/#interface-domtokenlist).
 
 ## Todo
-* Support for classList
-* Support for relList
-* Implement everything in the spec.
+* Support for classList.
+* Support for relList.
