@@ -1,10 +1,10 @@
 {
     "name": "domtokenlist-polyfill",
-    "version": "2.5.1",
+    "version": "1.0.0",
     "devDependencies": {
         "qunitjs": "^1.15.0",
         "gulp": "^3.8.7",
         "gulp-jshint": "^1.8.4",
-        "gulp-uglify": "^1.0.1"
+        "gulp-uglifyjs": "^0.4.2"
     }
 }
