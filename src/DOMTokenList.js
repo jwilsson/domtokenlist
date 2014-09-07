@@ -17,6 +17,10 @@
         return -1;
     };
 
+    var toArray = function (object) {
+        return [].slice.call(object);
+    };
+
     var validateToken = function (token) {
         var whitespace = /[\u0009\u000A\u000C\u000D\u0020]/;
 
@@ -31,13 +35,15 @@
 
     DOMTokenList2.prototype.add = function () {
         var i;
-        var tokens = [].slice.call(arguments);
+        var tokens = toArray(arguments);
 
         for (i = 0; i < tokens.length; i++) {
             validateToken(tokens[i]);
 
             if (!this.contains(tokens[i])) {
                 [].push.call(this, tokens[i]);
+
+                this.length = toArray(this).length;
             }
         }
     };
@@ -55,7 +61,7 @@
     DOMTokenList2.prototype.remove = function () {
         var i;
         var key;
-        var tokens = [].slice.call(arguments);
+        var tokens = toArray(arguments);
 
         for (i = 0; i < tokens.length; i++) {
             validateToken(tokens[i]);
@@ -64,6 +70,8 @@
 
             if (key !== -1) {
                 [].splice.call(this, key, 1);
+
+                this.length = toArray(this).length;
             }
         }
     };

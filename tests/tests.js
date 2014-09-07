@@ -203,6 +203,26 @@ test('Test toString()', function () {
     equal(list.toString(), 'token-1 token-2', 'Assert that tokens are space separated.');
 });
 
+test('Test length after add', function () {
+    var list = new DOMTokenList2();
+
+    list.add('token-1');
+
+    equal(list.length, 1, 'Assert that length is 1.');
+});
+
+test('Test length after remove', function () {
+    var list = new DOMTokenList2();
+
+    list.add('token-1');
+    list.add('token-2');
+    list.add('token-3');
+
+    list.remove('token-1');
+
+    equal(list.length, 2, 'Assert that length is 2.');
+});
+
 test('Disallow illegal token names', function () {
     var list = new DOMTokenList2();
 
