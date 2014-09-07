@@ -29,8 +29,20 @@
         }
     };
 
-    var DOMTokenList2 = function () {
-        this.length = 0;
+    var DOMTokenList2 = function (element, attribute) {
+        var i;
+        var values;
+
+        this.element = element;
+        this.attribute = attribute;
+
+        values = this.element.getAttribute(this.attribute).replace(/^\s+|\s+$/g,'').split(/\s+/);
+
+        for (i = 0; i < values.length; i++) {
+            this[i] = values[i];
+        }
+
+        this.length = values.length;
     };
 
     DOMTokenList2.prototype.add = function () {
@@ -46,6 +58,8 @@
                 this.length = toArray(this).length;
             }
         }
+
+        this.element.setAttribute(this.attribute, this.toString());
     };
 
     DOMTokenList2.prototype.contains = function (token) {
@@ -74,6 +88,8 @@
                 this.length = toArray(this).length;
             }
         }
+
+        this.element.setAttribute(this.attribute, this.toString());
     };
 
     DOMTokenList2.prototype.toggle = function (token, force) {
@@ -93,6 +109,7 @@
         }
 
         this.add(token);
+
         return true;
     };
 
