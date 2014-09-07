@@ -1,9 +1,9 @@
 ;(function (window) {
     'use strict';
 
-    /*if ('DOMTokenList' in window) {
+    if ('DOMTokenList' in window) {
         return;
-    }*/
+    }
 
     var inArray = function (array, value) {
         var i;
@@ -29,7 +29,7 @@
         }
     };
 
-    var DOMTokenList2 = function (element, attribute) {
+    var DOMTokenList = function (element, attribute) {
         var i;
         var values;
 
@@ -45,7 +45,7 @@
         this.length = values.length;
     };
 
-    DOMTokenList2.prototype.add = function () {
+    DOMTokenList.prototype.add = function () {
         var i;
         var tokens = toArray(arguments);
 
@@ -62,17 +62,17 @@
         this.element.setAttribute(this.attribute, this.toString());
     };
 
-    DOMTokenList2.prototype.contains = function (token) {
+    DOMTokenList.prototype.contains = function (token) {
         validateToken(token);
 
         return inArray(this, token) !== -1;
     };
 
-    DOMTokenList2.prototype.item = function (index) {
+    DOMTokenList.prototype.item = function (index) {
         return this[index] || null;
     };
 
-    DOMTokenList2.prototype.remove = function () {
+    DOMTokenList.prototype.remove = function () {
         var i;
         var key;
         var tokens = toArray(arguments);
@@ -92,7 +92,7 @@
         this.element.setAttribute(this.attribute, this.toString());
     };
 
-    DOMTokenList2.prototype.toggle = function (token, force) {
+    DOMTokenList.prototype.toggle = function (token, force) {
         validateToken(token);
 
         if (!this.contains(token) && force === false) {
@@ -113,9 +113,9 @@
         return true;
     };
 
-    DOMTokenList2.prototype.toString = function () {
+    DOMTokenList.prototype.toString = function () {
         return [].join.call(this, ' ');
     };
 
-    window.DOMTokenList2 = DOMTokenList2;
+    window.DOMTokenList = DOMTokenList;
 }(window));

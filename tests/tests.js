@@ -3,7 +3,7 @@ var toArray = function (object) {
 };
 
 test('Add single token', function () {
-    var list = new DOMTokenList2();
+    var list = new DOMTokenList();
 
     list.add('token-1');
     list = toArray(list);
@@ -12,7 +12,7 @@ test('Add single token', function () {
 });
 
 test('Add multiple tokenes', function () {
-    var list = new DOMTokenList2();
+    var list = new DOMTokenList();
 
     list.add('token-1', 'token-2');
     list = toArray(list);
@@ -21,7 +21,7 @@ test('Add multiple tokenes', function () {
 });
 
 test('Just add token once', function () {
-    var list = new DOMTokenList2();
+    var list = new DOMTokenList();
 
     list.add('token-1');
     list.add('token-1');
@@ -31,7 +31,7 @@ test('Just add token once', function () {
 });
 
 test('Just add token once', function () {
-    var list = new DOMTokenList2();
+    var list = new DOMTokenList();
 
     list.add('token-1');
     list.add('token-1');
@@ -41,7 +41,7 @@ test('Just add token once', function () {
 });
 
 test('Check contains with a single token', function () {
-    var list = new DOMTokenList2();
+    var list = new DOMTokenList();
 
     list.add('token-1');
 
@@ -49,7 +49,7 @@ test('Check contains with a single token', function () {
 });
 
 test('Check contains with multiple tokens', function () {
-    var list = new DOMTokenList2();
+    var list = new DOMTokenList();
 
     list.add('token-1');
     list.add('token-2');
@@ -58,7 +58,7 @@ test('Check contains with multiple tokens', function () {
 });
 
 test('Check contains with non existing token', function () {
-    var list = new DOMTokenList2();
+    var list = new DOMTokenList();
 
     list.add('token-1');
 
@@ -66,7 +66,7 @@ test('Check contains with non existing token', function () {
 });
 
 test('Check contains with non existing tokens', function () {
-    var list = new DOMTokenList2();
+    var list = new DOMTokenList();
 
     list.add('token-1');
     list.add('token-2');
@@ -75,7 +75,7 @@ test('Check contains with non existing tokens', function () {
 });
 
 test('Get item at index', function () {
-    var list = new DOMTokenList2();
+    var list = new DOMTokenList();
 
     list.add('token-1');
     list.add('token-2');
@@ -84,7 +84,7 @@ test('Get item at index', function () {
 });
 
 test('Get item at non existing index', function () {
-    var list = new DOMTokenList2();
+    var list = new DOMTokenList();
 
     list.add('token-1');
 
@@ -92,7 +92,7 @@ test('Get item at non existing index', function () {
 });
 
 test('Get item at index using shorthand', function () {
-    var list = new DOMTokenList2();
+    var list = new DOMTokenList();
 
     list.add('token-1');
     list.add('token-2');
@@ -101,7 +101,7 @@ test('Get item at index using shorthand', function () {
 });
 
 test('Get item at non existing index using shorthand', function () {
-    var list = new DOMTokenList2();
+    var list = new DOMTokenList();
 
     list.add('token-1');
 
@@ -109,7 +109,7 @@ test('Get item at non existing index using shorthand', function () {
 });
 
 test('Remove single token', function () {
-    var list = new DOMTokenList2();
+    var list = new DOMTokenList();
 
     list.add('token-1');
     list.add('token-2');
@@ -121,7 +121,7 @@ test('Remove single token', function () {
 });
 
 test('Remove multiple tokens', function () {
-    var list = new DOMTokenList2();
+    var list = new DOMTokenList();
 
     list.add('token-1');
     list.add('token-2');
@@ -133,7 +133,7 @@ test('Remove multiple tokens', function () {
 });
 
 test('Toggle addition of token', function () {
-    var list = new DOMTokenList2();
+    var list = new DOMTokenList();
 
     list.toggle('token-1');
     list = toArray(list);
@@ -142,7 +142,7 @@ test('Toggle addition of token', function () {
 });
 
 test('Toggle removal of token', function () {
-    var list = new DOMTokenList2();
+    var list = new DOMTokenList();
 
     list.add('token-1');
     list.toggle('token-1');
@@ -152,7 +152,7 @@ test('Toggle removal of token', function () {
 });
 
 test('Toggle removal of token', function () {
-    var list = new DOMTokenList2();
+    var list = new DOMTokenList();
 
     list.add('token-1');
     list.toggle('token-1');
@@ -162,7 +162,7 @@ test('Toggle removal of token', function () {
 });
 
 test('Toggle removal of token', function () {
-    var list = new DOMTokenList2();
+    var list = new DOMTokenList();
 
     list.add('token-1');
     list.toggle('token-1');
@@ -172,7 +172,7 @@ test('Toggle removal of token', function () {
 });
 
 test('Test toggle force with filled token list', function () {
-    var list = new DOMTokenList2();
+    var list = new DOMTokenList();
 
     list.add('token-1');
 
@@ -180,13 +180,13 @@ test('Test toggle force with filled token list', function () {
 });
 
 test('Test toggle force = true with empty token list', function () {
-    var list = new DOMTokenList2();
+    var list = new DOMTokenList();
 
     ok(list.toggle('token-1', true), 'Assert that toggle returns true.');
 });
 
 test('Test toggle force = false with empty token list', function () {
-    var list = new DOMTokenList2();
+    var list = new DOMTokenList();
     var result = list.toggle('token-12', false);
 
     list = toArray(list);
@@ -196,7 +196,7 @@ test('Test toggle force = false with empty token list', function () {
 });
 
 test('Test toString()', function () {
-    var list = new DOMTokenList2();
+    var list = new DOMTokenList();
 
     list.add('token-1', 'token-2');
 
@@ -204,7 +204,7 @@ test('Test toString()', function () {
 });
 
 test('Test length after add', function () {
-    var list = new DOMTokenList2();
+    var list = new DOMTokenList();
 
     list.add('token-1');
 
@@ -212,7 +212,7 @@ test('Test length after add', function () {
 });
 
 test('Test length after remove', function () {
-    var list = new DOMTokenList2();
+    var list = new DOMTokenList();
 
     list.add('token-1');
     list.add('token-2');
@@ -224,7 +224,7 @@ test('Test length after remove', function () {
 });
 
 test('Disallow illegal token names', function () {
-    var list = new DOMTokenList2();
+    var list = new DOMTokenList();
 
     throws(function () { list.add(''); }, Error, '.add() throws error on empty string.');
     throws(function () { list.add('token name'); }, Error, '.add() throws error on string with spaces.');
