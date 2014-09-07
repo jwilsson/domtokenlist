@@ -1,9 +1,9 @@
 ;(function (window) {
     'use strict';
 
-    if ('DOMTokenList' in window) {
+    /*if ('DOMTokenList' in window) {
         return;
-    }
+    }*/
 
     var inArray = function (array, value) {
         var i;
@@ -31,15 +31,17 @@
 
     var DOMTokenList = function (element, attribute) {
         var i;
-        var values;
+        var values = [];
 
-        this.element = element;
-        this.attribute = attribute;
+        if (element && attribute) {
+            this.element = element;
+            this.attribute = attribute;
 
-        values = this.element.getAttribute(this.attribute).replace(/^\s+|\s+$/g,'').split(/\s+/);
+            values = this.element.getAttribute(this.attribute).replace(/^\s+|\s+$/g,'').split(/\s+/);
 
-        for (i = 0; i < values.length; i++) {
-            this[i] = values[i];
+            for (i = 0; i < values.length; i++) {
+                this[i] = values[i];
+            }
         }
 
         this.length = values.length;
@@ -59,7 +61,9 @@
             }
         }
 
-        this.element.setAttribute(this.attribute, this.toString());
+        if (this.element) {
+            this.element.setAttribute(this.attribute, this.toString());
+        }
     };
 
     DOMTokenList.prototype.contains = function (token) {
@@ -89,7 +93,9 @@
             }
         }
 
-        this.element.setAttribute(this.attribute, this.toString());
+        if (this.element) {
+            this.element.setAttribute(this.attribute, this.toString());
+        }
     };
 
     DOMTokenList.prototype.toggle = function (token, force) {
