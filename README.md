@@ -9,3 +9,11 @@ If native DOMTokenList support is detected, nothing will be done.
 ```
 <script src="DOMTokenList.js"></script>
 ```
+
+## Browser support
+* Android - To be tested
+* Google Chrome - Current version and one version earlier.
+* Internet Explorer - To be tested
+* iOS - 7.0+
+* Mozilla Firefox - Current version and one version earlier.
+* Opera - Current version and one version earlier.
