@@ -1,6 +1,6 @@
 # DOMTokenList polyfill
 
-A super strict polyfill for [DOMTokenList](http://dom.spec.whatwg.org/#interface-domtokenlist).
+A super strict polyfill for [DOMTokenList](http://dom.spec.whatwg.org/#interface-domtokenlist), classList and relList.
 
 ## Usage
 All you need to do is include the JavaScript file and everything will be ready to go.
