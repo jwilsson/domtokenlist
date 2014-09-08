@@ -2,7 +2,7 @@
 ;(function (window) {
     'use strict';
 
-    if ('DOMTokenList' in window) {
+    if ('DOMTokenList' in window && !window.QUnit) {
         return;
     }
 
