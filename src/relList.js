@@ -8,7 +8,7 @@
     var i;
     var elements = [HTMLAnchorElement, HTMLAreaElement, HTMLLinkElement];
     var getter = function () {
-        return new DOMTokenList2(this, 'rel');
+        return new DOMTokenList(this, 'rel');
     };
 
     for (i = 0; i < elements.length; i++) {
