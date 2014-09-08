@@ -12,6 +12,12 @@
 
     <script src="../node_modules/qunitjs/qunit/qunit.js"></script>
     <script src="../src/DOMTokenList.js"></script>
-    <script src="tests.js"></script>
-
+    <script src="../src/classList.js"></script>
+    <script src="tests-DOMTokenList.js"></script>
+    <script src="tests-classList.js"></script>
+    <script>
+    var toArray = function (object) {
+        return [].slice.call(object);
+    };
+    </script>
 </body>

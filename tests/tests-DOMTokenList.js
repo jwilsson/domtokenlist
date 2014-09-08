@@ -1,6 +1,4 @@
-var toArray = function (object) {
-    return [].slice.call(object);
-};
+module('DOMTokenList');
 
 test('Add single token', function () {
     var list = new DOMTokenList();
