@@ -11,7 +11,11 @@ gulp.task('jshint', function () {
 
 gulp.task('uglify', function () {
     return gulp.src(files)
-        .pipe(uglify())
+        .pipe(uglify('DOMTokenList.js', {
+            output: {
+                comments: /^!/
+            }
+        }))
         .pipe(gulp.dest('./dist'));
 });
 

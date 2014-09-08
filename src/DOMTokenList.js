@@ -1,3 +1,4 @@
+/*! DOMTokenlist polyfill | Copyright 2014 Jonathan Wilsson. */
 ;(function (window) {
     'use strict';
 
