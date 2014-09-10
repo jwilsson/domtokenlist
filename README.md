@@ -12,8 +12,12 @@ If native DOMTokenList support is detected, nothing will be done.
 
 ## Browser support
 * Android - To be tested
-* Google Chrome - Current version and one version earlier.
-* Internet Explorer - To be tested
+* Google Chrome - Current version and one version earlier
+* Internet Explorer - 8+
 * iOS - 7.0+
-* Mozilla Firefox - Current version and one version earlier.
-* Opera - Current version and one version earlier.
+* Mozilla Firefox - Current version and one version earlier
+* Opera - Current version and one version earlier
+* Safari - To be tested
+
+### Notes on browser support
+* Android 4.0+ and IE10+ features native support for classList but doesn't support multiple arguments to add() and remove(). All arguments after the first one will be ignored.
