@@ -1,7 +1,19 @@
 var gulp = require('gulp');
+var concat = require('gulp-concat');
+var header = require('gulp-header');
 var jshint = require('gulp-jshint');
 var uglify = require('gulp-uglifyjs');
+
 var files = ['./src/DOMTokenList.js', './src/classList.js', './src/relList.js'];
+
+gulp.task('concat', function () {
+    gulp.src(files)
+        .pipe(concat('domtokenlist.js'))
+        .pipe(header('/*! DOMTokenlist shim | Copyright <%= year %> Jonathan Wilsson. */\n', {
+            year: new Date().getFullYear()
+        }))
+        .pipe(gulp.dest('./dist'));
+});
 
 gulp.task('jshint', function () {
     return gulp.src(files)
@@ -9,9 +21,9 @@ gulp.task('jshint', function () {
         .pipe(jshint.reporter('default'));
 });
 
-gulp.task('uglify', function () {
-    return gulp.src(files)
-        .pipe(uglify('DOMTokenList.js', {
+gulp.task('uglify', ['concat'], function () {
+    return gulp.src('./dist/domtokenlist.js')
+        .pipe(uglify('domtokenlist.min.js', {
             output: {
                 comments: /^!/
             }

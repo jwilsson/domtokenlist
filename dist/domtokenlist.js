@@ -1,3 +1,4 @@
+/*! DOMTokenlist shim | Copyright 2015 Jonathan Wilsson. */
 ;(function (window) {
     'use strict';
 
@@ -130,3 +131,37 @@
 
     window.DOMTokenList = DOMTokenList;
 }(window));
+
+;(function () {
+    'use strict';
+
+    if ('classList' in document.createElement('a') && !window.QUnit) {
+        return;
+    }
+
+    Object.defineProperty(Element.prototype, 'classList', {
+        get: function () {
+            return new DOMTokenList(this, 'class');
+        }
+    });
+}());
+
+;(function () {
+    'use strict';
+
+    if ('relList' in document.createElement('a') && !window.QUnit) {
+        return;
+    }
+
+    var i;
+    var elements = [HTMLAnchorElement, HTMLAreaElement, HTMLLinkElement];
+    var getter = function () {
+        return new DOMTokenList(this, 'rel');
+    };
+
+    for (i = 0; i < elements.length; i++) {
+        Object.defineProperty(elements[i].prototype, 'relList', {
+            get: getter
+        });
+    }
+}());

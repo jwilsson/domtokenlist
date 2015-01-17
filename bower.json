@@ -1,0 +1,20 @@
+{
+    "name": "domtokenlist-shim",
+    "version": "1.0.1",
+    "main": "dist/domtokenlist.js",
+    "ignore": [
+        "**/.*",
+        "*.json",
+        "*.md",
+        "gulpfile.js",
+        "src",
+        "tests"
+    ],
+    "keywords": [
+        "classlist",
+        "domtokenlist",
+        "polyfill",
+        "rellist",
+        "shim"
+      ]
+}
