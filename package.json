@@ -1,6 +1,6 @@
 {
-    "name": "dom.js",
-    "version": "1.0.4",
+    "name": "domtokenlist-shim",
+    "version": "1.0.1",
     "devDependencies": {
         "gulp": "~3.8.10",
         "gulp-concat": "~2.4.3",
