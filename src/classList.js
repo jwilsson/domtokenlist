@@ -7,7 +7,7 @@
 
     Object.defineProperty(Element.prototype, 'classList', {
         get: function () {
-            return new DOMTokenList(this, 'class');
+            return new DOMTokenList(this, 'className');
         }
     });
 }());
