@@ -30,15 +30,15 @@
         }
     };
 
-    var DOMTokenList = function (element, attribute) {
+    var DOMTokenList = function (element, prop) {
         var i;
         var values = [];
 
-        if (element && attribute) {
+        if (element && prop) {
             this.element = element;
-            this.attribute = attribute;
+            this.prop = prop;
 
-            values = this.element.getAttribute(this.attribute);
+            values = element[prop];
             if (values) {
                 values = values.replace(/^\s+|\s+$/g,'').split(/\s+/);
 
@@ -68,7 +68,7 @@
         }
 
         if (this.element) {
-            this.element.setAttribute(this.attribute, this.toString());
+            this.element[this.prop] = this.toString();
         }
     };
 
@@ -100,7 +100,7 @@
         }
 
         if (this.element) {
-            this.element.setAttribute(this.attribute, this.toString());
+            this.element[this.prop] = this.toString();
         }
     };
 
@@ -141,7 +141,7 @@
 
     Object.defineProperty(Element.prototype, 'classList', {
         get: function () {
-            return new DOMTokenList(this, 'class');
+            return new DOMTokenList(this, 'className');
         }
     });
 }());
