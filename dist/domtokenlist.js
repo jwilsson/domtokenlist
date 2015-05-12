@@ -6,8 +6,14 @@
         return;
     }
 
+    var arr = [];
+
     var inArray = function (array, value) {
         var i;
+
+        if (arr.indexOf) {
+            return arr.indexOf.call(array, value);
+        }
 
         for (i = 0; i < array.length; i++) {
             if (array[i] === value) {
@@ -19,7 +25,7 @@
     };
 
     var toArray = function (object) {
-        return [].slice.call(object);
+        return arr.slice.call(object);
     };
 
     var validateToken = function (token) {
@@ -61,7 +67,7 @@
             validateToken(tokens[i]);
 
             if (!this.contains(tokens[i])) {
-                [].push.call(this, tokens[i]);
+                arr.push.call(this, tokens[i]);
 
                 this.length = toArray(this).length;
             }
@@ -93,7 +99,7 @@
             key = inArray(this, tokens[i]);
 
             if (key !== -1) {
-                [].splice.call(this, key, 1);
+                arr.splice.call(this, key, 1);
 
                 this.length = toArray(this).length;
             }
@@ -126,7 +132,7 @@
     };
 
     DOMTokenList.prototype.toString = function () {
-        return [].join.call(this, ' ');
+        return arr.join.call(this, ' ');
     };
 
     window.DOMTokenList = DOMTokenList;
