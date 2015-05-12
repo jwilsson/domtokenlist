@@ -1,6 +1,14 @@
 {
     "name": "domtokenlist-shim",
     "version": "1.0.1",
+    "keywords": [
+        "domtokenlist",
+        "classlist",
+        "rellist",
+        "shim",
+        "dom",
+        "browser"
+    ],
     "devDependencies": {
         "gulp": "~3.8.11",
         "gulp-concat": "~2.5.2",
@@ -9,5 +17,10 @@
         "gulp-rename": "~1.2.2",
         "gulp-uglify": "~1.2.0",
         "qunitjs": "~1.18.0"
-    }
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/jwilsson/domtokenlist.git"
+    },
+    "license": "MIT"
 }
