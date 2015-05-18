@@ -10,7 +10,7 @@ var files = ['./src/DOMTokenList.js', './src/classList.js', './src/relList.js'];
 gulp.task('concat', function () {
     gulp.src(files)
         .pipe(concat('domtokenlist.js'))
-        .pipe(header('/*! DOMTokenlist shim | Copyright <%= year %> Jonathan Wilsson. */\n', {
+        .pipe(header('/*! DOMTokenlist shim | Copyright <%= year %> Jonathan Wilsson and contributors. */\n', {
             year: new Date().getFullYear()
         }))
         .pipe(gulp.dest('./dist'));

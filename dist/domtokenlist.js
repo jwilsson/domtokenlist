@@ -1,4 +1,4 @@
-/*! DOMTokenlist shim | Copyright 2015 Jonathan Wilsson. */
+/*! DOMTokenlist shim | Copyright 2015 Jonathan Wilsson and contributors. */
 ;(function (window) {
     'use strict';
 
