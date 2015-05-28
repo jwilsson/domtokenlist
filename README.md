@@ -7,7 +7,7 @@ All you need to do is include the JavaScript file and everything will be ready t
 If native DOMTokenList support is detected, nothing will be done.
 
 ```
-<script src="DOMTokenList.js"></script>
+<script src="domtokenlist.min.js"></script>
 ```
 
 ## Browser support
