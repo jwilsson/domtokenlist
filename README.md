@@ -24,3 +24,9 @@ If native DOMTokenList support is detected, nothing will be done.
 
 ## License
 MIT license. See [LICENSE.md](LICENSE.md) for more information.
+
+## Credits
+Developed by [Jonathan Wilsson](https://github.com/jwilsson) and [Bogdan Chadkin](https://github.com/TrySound).
+
+A big thanks to [BrowserStack](https://www.browserstack.com/) for sponsoring our test environment. <br><br>
+[<img src="https://cdn.rawgit.com/jwilsson/domtokenlist/master/browserstack-logo.svg" alt="BrowserStack" width="300">](https://www.browserstack.com/)
