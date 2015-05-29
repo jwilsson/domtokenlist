@@ -1,20 +1,29 @@
 {
-    "name": "domtokenlist-shim",
-    "version": "1.0.2",
-    "main": "dist/domtokenlist.js",
-    "ignore": [
-        "**/.*",
-        "*.json",
-        "*.md",
-        "gulpfile.js",
-        "src",
-        "tests"
-    ],
-    "keywords": [
-        "classlist",
-        "domtokenlist",
-        "polyfill",
-        "rellist",
-        "shim"
-      ]
+  "name": "domtokenlist-shim",
+  "description": "A super strict shim/polyfill for DOMTokenList",
+  "main": "dist/domtokenlist.js",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "*.json",
+    "*.md",
+    "gulpfile.js",
+    "src",
+    "tests",
+    "node_modules",
+    "bower_components",
+    "test"
+  ],
+  "keywords": [
+    "classlist",
+    "domtokenlist",
+    "polyfill",
+    "rellist",
+    "shim"
+  ],
+  "authors": [
+    "Jonathan Wilsson (http://jwilsson.com/)",
+    "Bogdan Chadkin <trysound@yandex.ru>"
+  ],
+  "homepage": "https://github.com/jwilsson/domtokenlist"
 }
