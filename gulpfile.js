@@ -4,8 +4,9 @@ var header = require('gulp-header');
 var jshint = require('gulp-jshint');
 var rename = require('gulp-rename');
 var uglify = require('gulp-uglify');
+var size = require('gulp-size');
 
-var files = ['./src/DOMTokenList.js', './src/classList.js', './src/relList.js'];
+var files = ['./src/DOMTokenList-newest.js', './src/DOMTokenList.js', './src/classList.js', './src/relList.js'];
 
 gulp.task('concat', function () {
     gulp.src(files)
@@ -30,6 +31,7 @@ gulp.task('uglify', ['concat'], function () {
         .pipe(rename({
             suffix: '.min'
         }))
+        .pipe(size({ showFiles: true }))
         .pipe(gulp.dest('./dist'));
 });
 
