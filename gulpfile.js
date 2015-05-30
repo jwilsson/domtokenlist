@@ -11,9 +11,7 @@ var files = ['src/DOMTokenList-newest.js', 'src/DOMTokenList.js', 'src/classList
 gulp.task('concat', function () {
     return gulp.src(files)
         .pipe(concat('domtokenlist.js'))
-        .pipe(header('/*! DOMTokenlist shim | Copyright <%= year %> Jonathan Wilsson and Bogdan Chadkin. */\n', {
-            year: new Date().getFullYear()
-        }))
+        .pipe(header('/*! DOMTokenlist shim | Copyright <%= new Date().getFullYear() %> Jonathan Wilsson and Bogdan Chadkin. */\n'))
         .pipe(size({
             showFiles: true
         }))

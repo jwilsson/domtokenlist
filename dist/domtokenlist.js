@@ -1,8 +1,8 @@
-/*! DOMTokenlist shim | Copyright 2015 Jonathan Wilsson and contributors. */
+/*! DOMTokenlist shim | Copyright 2015 Jonathan Wilsson and Bogdan Chadkin. */
 ;(function () {
     'use strict';
 
-    if (!('DOMTokenList' in window)) {
+    if (!window.DOMTokenList) {
         return;
     }
 
@@ -18,11 +18,11 @@
     // arguments, easy to test for
     var iterateArg = function (fn) {
         return function () {
-            var args = arguments;
-            var i, max;
+            var tokens = arguments;
+            var i;
 
-            for(i = 0, max = args.length; i < max; i += 1) {
-                fn.call(this, args[i]);
+            for(i = 0; i < tokens.length; i += 1) {
+                fn.call(this, tokens[i]);
             }
         };
     };
@@ -49,7 +49,7 @@
 ;(function (window) {
     'use strict';
 
-    if ('DOMTokenList' in window && !window.QUnit) {
+    if (window.DOMTokenList) {
         return;
     }
 
@@ -71,10 +71,6 @@
         return -1;
     };
 
-    var toArray = function (object) {
-        return arr.slice.call(object);
-    };
-
     var validateToken = function (token) {
         var whitespace = /[\u0009\u000A\u000C\u000D\u0020]/;
 
@@ -84,102 +80,97 @@
     };
 
     var DOMTokenList = function (element, prop) {
+        var inst = this;
         var i;
         var values = [];
 
         if (element && prop) {
-            this.element = element;
-            this.prop = prop;
+            inst.element = element;
+            inst.prop = prop;
 
-            values = element[prop];
-            if (values) {
-                values = values.replace(/^\s+|\s+$/g,'').split(/\s+/);
+            if (element[prop]) {
+                values = element[prop].replace(/^\s+|\s+$/g,'').split(/\s+/);
 
                 for (i = 0; i < values.length; i++) {
-                    this[i] = values[i];
+                    inst[i] = values[i];
                 }
-            } else {
-                values = [];
             }
         }
 
-        this.length = values.length;
+        inst.length = values.length;
     };
 
-    DOMTokenList.prototype.add = function () {
-        var i;
-        var tokens = toArray(arguments);
+    DOMTokenList.prototype = {
+        add: function () {
+            var inst = this;
+            var i;
+            var tokens = arguments;
 
-        for (i = 0; i < tokens.length; i++) {
-            validateToken(tokens[i]);
+            for (i = 0; i < tokens.length; i++) {
+                validateToken(tokens[i]);
 
-            if (!this.contains(tokens[i])) {
-                arr.push.call(this, tokens[i]);
-
-                this.length = toArray(this).length;
+                if (!inst.contains(tokens[i])) {
+                    arr.push.call(inst, tokens[i]);
+                }
             }
-        }
 
-        if (this.element) {
-            this.element[this.prop] = this.toString();
-        }
-    };
-
-    DOMTokenList.prototype.contains = function (token) {
-        validateToken(token);
-
-        return inArray(this, token) !== -1;
-    };
-
-    DOMTokenList.prototype.item = function (index) {
-        return this[index] || null;
-    };
-
-    DOMTokenList.prototype.remove = function () {
-        var i;
-        var key;
-        var tokens = toArray(arguments);
-
-        for (i = 0; i < tokens.length; i++) {
-            validateToken(tokens[i]);
-
-            key = inArray(this, tokens[i]);
-
-            if (key !== -1) {
-                arr.splice.call(this, key, 1);
-
-                this.length = toArray(this).length;
+            if (inst.element) {
+                inst.element[inst.prop] = inst;
             }
-        }
+        },
 
-        if (this.element) {
-            this.element[this.prop] = this.toString();
-        }
-    };
+        contains: function (token) {
+            validateToken(token);
 
-    DOMTokenList.prototype.toggle = function (token, force) {
-        validateToken(token);
+            return inArray(this, token) !== -1;
+        },
 
-        if (!this.contains(token) && force === false) {
-            return false;
-        }
+        item: function (index) {
+            return this[index] || null;
+        },
 
-        if (this.contains(token)) {
-            if (!force) {
-                this.remove(token);
+        remove: function () {
+            var inst = this;
+            var i;
+            var key;
+            var tokens = arguments;
+
+            for (i = 0; i < tokens.length; i++) {
+                validateToken(tokens[i]);
+
+                key = inArray(inst, tokens[i]);
+
+                if (key !== -1) {
+                    arr.splice.call(inst, key, 1);
+                }
+            }
+
+            if (inst.element) {
+                inst.element[inst.prop] = inst;
+            }
+        },
+
+        toggle: function (token, force) {
+            var inst = this;
+            if(inst.contains(token)) {
+                if(force) {
+                    return true;
+                }
+                inst.remove(token);
                 return false;
+            } else {
+                if(force === false) {
+                    return false;
+                }
+
+                inst.add(token);
+                return true;
             }
+        },
 
-            return true;
+        toString: function () {
+            return arr.join.call(this, ' ');
         }
-
-        this.add(token);
-
-        return true;
-    };
-
-    DOMTokenList.prototype.toString = function () {
-        return arr.join.call(this, ' ');
     };
 
     window.DOMTokenList = DOMTokenList;

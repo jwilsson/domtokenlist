@@ -1,7 +1,7 @@
 ;(function () {
     'use strict';
 
-    if (!('DOMTokenList' in window)) {
+    if (!window.DOMTokenList) {
         return;
     }
 
@@ -17,11 +17,11 @@
     // arguments, easy to test for
     var iterateArg = function (fn) {
         return function () {
-            var args = arguments;
-            var i, max;
+            var tokens = arguments;
+            var i;
 
-            for(i = 0, max = args.length; i < max; i += 1) {
-                fn.call(this, args[i]);
+            for(i = 0; i < tokens.length; i += 1) {
+                fn.call(this, tokens[i]);
             }
         };
     };
