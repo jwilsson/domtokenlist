@@ -39,7 +39,7 @@
                 return toggle.call(this, cls);
             }
 
-            (force ? add : rem).call(this, cls);
+            (force ? add : remove).call(this, cls);
             return !!force;
         };
     }
