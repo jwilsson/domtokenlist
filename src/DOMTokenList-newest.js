@@ -1,4 +1,4 @@
-;(function () {
+;(function (window) {
     'use strict';
 
     if (!window.DOMTokenList) {
@@ -20,7 +20,7 @@
             var tokens = arguments;
             var i;
 
-            for(i = 0; i < tokens.length; i += 1) {
+            for (i = 0; i < tokens.length; i += 1) {
                 fn.call(this, tokens[i]);
             }
         };
@@ -43,5 +43,4 @@
             return !!force;
         };
     }
-
-} ());
+}(window));

@@ -41,7 +41,7 @@
             inst.prop = prop;
 
             if (element[prop]) {
-                values = element[prop].replace(/^\s+|\s+$/g,'').split(/\s+/);
+                values = element[prop].replace(/^\s+|\s+$/g, '').split(/\s+/);
 
                 for (i = 0; i < values.length; i++) {
                     inst[i] = values[i];
@@ -82,10 +82,10 @@
         },
 
         remove: function () {
-            var inst = this;
-            var i;
-            var key;
             var tokens = arguments;
+            var inst = this;
+            var key;
+            var i;
 
             for (i = 0; i < tokens.length; i++) {
                 validateToken(tokens[i]);
@@ -104,18 +104,22 @@
 
         toggle: function (token, force) {
             var inst = this;
-            if(inst.contains(token)) {
-                if(force) {
+
+            if (inst.contains(token)) {
+                if (force) {
                     return true;
                 }
+
                 inst.remove(token);
+
                 return false;
             } else {
-                if(force === false) {
+                if (force === false) {
                     return false;
                 }
 
                 inst.add(token);
+
                 return true;
             }
         },
