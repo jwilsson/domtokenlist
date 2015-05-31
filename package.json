@@ -24,7 +24,7 @@
     "gulp-uglify": "~1.2.0",
     "qunitjs": "~1.18.0"
   },
-  "author": "Jonathan Wilsson (http://jwilsson.com/)",
+  "author": "Jonathan Wilsson <jonathan.wilsson@gmail.com>",
   "contributors": [
     "Bogdan Chadkin <trysound@yandex.ru>"
   ],

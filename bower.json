@@ -22,7 +22,7 @@
     "shim"
   ],
   "authors": [
-    "Jonathan Wilsson (http://jwilsson.com/)",
+    "Jonathan Wilsson <jonathan.wilsson@gmail.com>",
     "Bogdan Chadkin <trysound@yandex.ru>"
   ],
   "homepage": "https://github.com/jwilsson/domtokenlist"
