@@ -7,7 +7,7 @@ var rename = require('gulp-rename');
 var size = require('gulp-size');
 var uglify = require('gulp-uglify');
 
-var files = ['src/DOMTokenList-newest.js', 'src/DOMTokenList.js', 'src/classList.js', 'src/relList.js'];
+var files = './src/**/*.js';
 
 gulp.task('concat', ['lint'], function () {
     return gulp.src(files)
@@ -43,8 +43,7 @@ gulp.task('uglify', ['concat'], function () {
         .pipe(gulp.dest('./dist'));
 });
 
-gulp.task('dev', function () {
-    gulp.start('default');
+gulp.task('watch', ['default'], function () {
     gulp.watch(files, ['default']);
 });
 
