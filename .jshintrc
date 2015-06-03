@@ -1,8 +1,3 @@
 {
-    "camelcase": true,
-    "immed": true,
-    "jquery": true,
-    "latedef": true,
-    "newcap": true,
-    "quotmark": "single"
+    "latedef": true
 }
