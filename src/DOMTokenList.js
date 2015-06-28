@@ -1,10 +1,6 @@
 ;(function (window) {
     'use strict';
 
-    if (window.DOMTokenList) {
-        return;
-    }
-
     var arr = [];
 
     var inArray = function (array, value) {
