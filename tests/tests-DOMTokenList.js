@@ -177,6 +177,14 @@ test('Test toggle force with filled token list', function () {
     equal(list.toggle('token-1', false), false, 'Assert that toggle returns false.');
 });
 
+test('Test toggle force = true with filled token list', function () {
+    var list = new DOMTokenList();
+
+    list.add('token-1');
+
+    equal(list.toggle('token-1', true), true, 'Assert that toggle returns true.');
+});
+
 test('Test toggle force = true with empty token list', function () {
     var list = new DOMTokenList();
 
