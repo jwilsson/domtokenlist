@@ -14,13 +14,14 @@
     "test": "tests"
   },
   "devDependencies": {
+    "browserstack-runner": "^0.3.5",
     "gulp": "^3.9.0",
     "gulp-concat": "^2.5.2",
     "gulp-header": "^1.2.2",
-    "gulp-jscs": "^2.0.0",
+    "gulp-jscs": "^3.0.0",
     "gulp-jshint": "^1.11.0",
     "gulp-rename": "^1.2.2",
-    "gulp-size": "^1.2.1",
+    "gulp-size": "^2.0.0",
     "gulp-uglify": "^1.2.0",
     "qunitjs": "^1.18.0"
   },
