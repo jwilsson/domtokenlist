@@ -1,4 +1,6 @@
 # Changelog
+## 1.1.1 (2015-11-25)
+* Fixed illegal `relList` constructor. (props [@TrySound](https://github.com/TrySound))
 
 ## 1.1.0 (2015-05-31)
 * `add()` and `remove()` with multiple arguments and `toggle()` with `force` argument are now shimmed where needed, enabling full support in all browsers.
