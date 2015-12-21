@@ -1,4 +1,4 @@
-;(function (window) {
+;typeof window !== 'undefined' && (function (window) {
     'use strict';
 
     if (!window.DOMTokenList) {

@@ -1,5 +1,5 @@
 /*! DOMTokenlist shim | Copyright 2015 Jonathan Wilsson and Bogdan Chadkin. */
-;(function (window) {
+;typeof window !== 'undefined' && (function (window) {
     'use strict';
 
     if (!window.DOMTokenList) {
@@ -46,7 +46,7 @@
     }
 }(window));
 
-;(function (window) {
+;typeof window !== 'undefined' && (function (window) {
     'use strict';
 
     var arr = [];
@@ -176,7 +176,7 @@
     window.DOMTokenList = DOMTokenList;
 }(window));
 
-;(function () {
+;typeof window !== 'undefined' && (function () {
     'use strict';
 
     if ('classList' in document.createElement('a') && !window.QUnit) {
@@ -190,7 +190,7 @@
     });
 }());
 
-;(function () {
+;typeof window !== 'undefined' && (function () {
     'use strict';
 
     if ('relList' in document.createElement('a') && !window.QUnit) {

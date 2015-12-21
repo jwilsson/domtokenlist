@@ -1,4 +1,4 @@
-;(function () {
+;typeof window !== 'undefined' && (function () {
     'use strict';
 
     if ('relList' in document.createElement('a') && !window.QUnit) {
