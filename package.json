@@ -19,10 +19,11 @@
     "gulp-concat": "^2.5.2",
     "gulp-header": "^1.2.2",
     "gulp-jscs": "^3.0.0",
-    "gulp-jshint": "^1.11.0",
+    "gulp-jshint": "^2.0.0",
     "gulp-rename": "^1.2.2",
     "gulp-size": "^2.0.0",
     "gulp-uglify": "^1.2.0",
+    "jshint": "^2.9.1-rc2",
     "qunitjs": "^1.18.0"
   },
   "author": "Jonathan Wilsson <jonathan.wilsson@gmail.com>",
