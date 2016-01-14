@@ -1,3 +1,13 @@
+/*! DOMTokenlist shim | Copyright 2016 Jonathan Wilsson and Bogdan Chadkin. */
+;(function(root, factory) {
+  if (typeof define === 'function' && define.amd) {
+    define([], factory);
+  } else if (typeof exports === 'object') {
+    module.exports = factory();
+  } else {
+    root.DOMTokenList = factory();
+  }
+}(this, function() {
 'use strict';
 
 var arr = [];
@@ -123,3 +133,6 @@ DOMTokenList.prototype = {
         return arr.join.call(this, ' ');
     }
 };
+
+return DOMTokenList;
+}));
