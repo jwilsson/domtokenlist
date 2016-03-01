@@ -12,7 +12,7 @@ var uglify = require('gulp-uglify');
 var umd = require('gulp-umd');
 
 var copyright = '/*! DOMTokenlist shim | Copyright <%= new Date().getFullYear() %> Jonathan Wilsson and Bogdan Chadkin. */\n';
-var files = ['src/DOMTokenList-newest.js', 'src/DOMTokenList.js', 'src/classList.js', 'src/relList.js'];
+var files = ['src/DOMTokenList-newest.js', 'src/DOMTokenList.js', 'src/classList.js', 'src/relList.js', 'src/svg.classList.js'];
 
 gulp.task('lint', function () {
     return gulp.src(files)
