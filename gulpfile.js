@@ -76,8 +76,42 @@ gulp.task('build-umd', ['lint'], function () {
         .pipe(gulp.dest('dist'));
 });
 
-gulp.task('dev', ['build', 'build-umd'], function () {
-    gulp.watch(files, ['build', 'build-umd'])
+gulp.task('build-polyfill-umd', ['build-umd'], function () {
+    return gulp.src(['src/DOMTokenList-newest.js', 'src/classList.js', 'src/relList.js', 'src/svg.classList.js'])
+        .pipe(concat('domtokenlist-polyfill-umd.js'))
+        .pipe(footer("typeof window !== 'undefined' && (window.DOMTokenList = DOMTokenList);"))
+        .pipe(umd({
+            dependencies: function() {
+                return [
+                    {
+                        name: 'DOMTokenList',
+                        amd: './domtokenlist-umd',
+                        cjs: './domtokenlist-umd',
+                        global: 'DOMTokenList',
+                        param: 'DOMTokenList'
+                    }
+                ];
+            },
+            exports: function(file) {
+                return 'DOMTokenList';
+            },
+            namespace: function(file) {
+                return 'DOMTokenList';
+            },
+        }))
+        .pipe(header(copyright))
+        .pipe(gulp.dest('dist'))
+        .pipe(uglify({
+            preserveComments: 'some',
+        }))
+        .pipe(rename({
+            suffix: '.min',
+        }))
+        .pipe(gulp.dest('dist'));
 });
 
-gulp.task('default', ['build', 'build-umd']);
+gulp.task('dev', ['build', 'build-umd', 'build-polyfill-umd'], function () {
+    gulp.watch(files, ['build', 'build-umd', 'build-polyfill-umd'])
+});
+
+gulp.task('default', ['build', 'build-umd', 'build-polyfill-umd']);
