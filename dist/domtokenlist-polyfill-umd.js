@@ -111,6 +111,6 @@
         }
     });
 }());
-window.DOMTokenList = DOMTokenList;
+typeof window !== 'undefined' && (window.DOMTokenList = DOMTokenList);
 return DOMTokenList;
 }));
