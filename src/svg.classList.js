@@ -1,6 +1,12 @@
 ;typeof window !== 'undefined' && (function () {
     'use strict';
 
+    if (typeof SVGElement === 'undefined') {
+        // IE8 does not support SVG and would throw
+        // "Object doesn't support this method or property"
+        return;
+    }
+
     // https://connect.microsoft.com/IE/feedback/details/1046039/classlist-not-working-on-svg-elements
     var svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
     if ('classList' in svg && !window.QUnit) {
