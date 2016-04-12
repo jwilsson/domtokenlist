@@ -1,7 +1,7 @@
 ;typeof window !== 'undefined' && (function () {
     'use strict';
 
-    if ('classList' in document.createElement('a') && !window.QUnit) {
+    if ('classList' in document.createElement('a')) {
         return;
     }
 

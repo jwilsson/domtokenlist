@@ -1,7 +1,7 @@
 ;typeof window !== 'undefined' && (function () {
     'use strict';
 
-    if ('relList' in document.createElement('a') && !window.QUnit) {
+    if ('relList' in document.createElement('a')) {
         return;
     }
 
