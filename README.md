@@ -12,6 +12,7 @@ If native DOMTokenList support is detected, nothing will be done.
 
 ## Browser support
 * Android - 2.3+
+* Edge - Current version and one version earlier
 * Google Chrome - Current version and one version earlier
 * Internet Explorer - 8+
 * iOS - 6.1+
