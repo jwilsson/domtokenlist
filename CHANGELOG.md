@@ -1,4 +1,8 @@
 # Changelog
+## 1.2.0 (2016-04-13)
+* Added support for SVG elements. (props [@rodneyrehm](https://github.com/rodneyrehm))
+* Allow for loading in non-browser environments. (props [@rodneyrehm](https://github.com/rodneyrehm))
+
 ## 1.1.1 (2015-11-25)
 * Fixed illegal `relList` constructor. (props [@TrySound](https://github.com/TrySound))
 
